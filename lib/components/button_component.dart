@@ -1,5 +1,7 @@
+import 'package:calculator/bloc/calculation_bloc.dart';
 import 'package:calculator/utils/constants.dart';
 import 'package:flutter/material.dart' hide BoxShadow, BoxDecoration;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 
 enum Shape {
@@ -46,6 +48,11 @@ class _ButtonComponentState extends State<ButtonComponent> {
       }),
       onPointerUp: (_) => setState(() {
         isPressed = false;
+        if (widget.shape == Shape.square) {
+          context.read<CalculationBloc>().addSign(widget.text);
+        } else {
+          context.read<CalculationBloc>().typeNumber(widget.text);
+        }
       }),
       child: AnimatedContainer(
         duration: const Duration(

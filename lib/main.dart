@@ -1,4 +1,4 @@
-import 'package:calculator/bloc/counter.dart';
+import 'package:calculator/bloc/calculation_bloc.dart';
 import 'package:calculator/screens/home_screen.dart';
 import 'package:calculator/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Calculator App',
       debugShowCheckedModeBanner: false,
-      home: BlocProvider( 
-        create: (_) => Counter(),
+      home: BlocProvider<CalculationBloc>( 
+        create: (context) => CalculationBloc(),
         child: const HomeScreen()),
     );
   }

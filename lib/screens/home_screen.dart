@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
           textColor: Color(0xFFB94D2B),
         ),
         const ButtonComponent(
-          text: '+/-',
+          text: '+/\u2212',
           fontSize: 32,
         ),
         const ButtonComponent(
